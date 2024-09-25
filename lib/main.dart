@@ -7,31 +7,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'pert3',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'test'),
     );
   }
 }
@@ -39,88 +24,129 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+  
     return Scaffold(
-      body: Center(
-        child: Center(
-          child: Row(
-            children: [
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 10),
-                        color: Colors.red,
-                      child: Row(
-                        children: [
-                          
-                        ],
-                      ),
-                      ),
-                    ),
-                    Center(
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 10),
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Center(
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 10),
-                        color: Colors.green,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+     
+      // body: GridView(
+      //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      //     crossAxisCount: 3,
+      //   ),
+      //   padding: const EdgeInsets.all(10),
+      //   children: [
+      //     Container(
+      //         width: double.infinity,
+      //         height: 250,
+      //         margin: const EdgeInsets.only(bottom: 10),
+      //         decoration: BoxDecoration(
+      //             color: Colors.red,
+      //             image: DecorationImage(image: AssetImage("test2.png")))),
+      //     Container(
+      //       width: double.infinity,
+      //       height: 250,
+      //       margin: const EdgeInsets.only(bottom: 10),
+      //       color: Colors.blue,
+      //       child: const Image(image: AssetImage("test1.png.png")),
+      //     ),
+      //     Container(
+      //         width: double.infinity,
+      //         height: 250,
+      //         margin: const EdgeInsets.only(bottom: 10),
+      //         color: Colors.green,
+      //         child: Image.network("https://picsum.photos/777")),
+      //   ],
+      // ),
+      body: ListView(
+        children: const [
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage("test1.png.png"),
+            ),
+            title: Text("gapri"),
+            trailing: Icon(Icons.keyboard_arrow_right),
           ),
-        ),
-      ), //di flutter clean
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage("test2.png"),
+            ),
+            title: Text("ngdoer"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+          ),
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage("test3.png"),
+            ),
+            title: Text("gapri2"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+          )
+        ],
+      ),
+
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: [
+      //         Container(
+      //           width: 50,
+      //           height: 50,
+      //           margin: const EdgeInsets.all(10),
+      //           color: Colors.orange,
+      //         ),
+      //         Container(
+      //           width: 50,
+      //           height: 50,
+      //           margin: const EdgeInsets.all(10),
+      //           color: Colors.red,
+      //         ),
+      //         Container(
+      //           width: 50,
+      //           height: 50,
+      //           margin: const EdgeInsets.all(10),
+      //           color: Colors.blue,
+      //         ),
+      //       ],
+      //     ),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: [
+      //         Container(
+      //           width: 50,
+      //           height: 50,
+      //           margin: const EdgeInsets.all(10),
+      //           color: Colors.purple,
+      //         ),
+      //         Container(
+      //           width: 50,
+      //           height: 50,
+      //           margin: const EdgeInsets.all(10),
+      //           color: Colors.green,
+      //         ),
+      //         Container(
+      //           width: 50,
+      //           height: 50,
+      //           margin: const EdgeInsets.all(10),
+      //           color: Colors.yellow,
+      //         ),
+      //       ],
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
